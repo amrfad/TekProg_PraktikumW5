@@ -169,4 +169,12 @@ public class Manager extends AbstractStoreEmployee {
                 + "\nSales done: $" + salesDone;
     }
 
+    /**
+     * Rise the manager salary
+     */
+    @Override
+    public void riseBasePay() {
+        setBasePay(super.getBasePay() * 1.15);
+    }
+
 }

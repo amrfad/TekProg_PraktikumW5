@@ -196,4 +196,8 @@ public abstract class AbstractStoreEmployee implements Employee, Store {
                 + "\nPayment Rate per hour: $" + hourlyRate + "/hr\n";
     }
 
+    /**
+     * Rise the employee salary
+     */
+    public abstract void riseBasePay();
 }

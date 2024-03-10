@@ -110,4 +110,8 @@ public class SalesAssociate extends AbstractStoreEmployee {
         return super.toString() + "Sales Rate: " + getSalesRate() + "%";
     }
 
+    @Override
+    public void riseBasePay() {
+        setBasePay(getBasePay() * (1 + salesRate / 10));
+    }
 }

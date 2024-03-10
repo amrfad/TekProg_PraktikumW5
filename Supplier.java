@@ -122,5 +122,13 @@ public class Supplier extends AbstractStoreEmployee {
         return super.toString() + "Product supplied: " + getProductSupplied() +
                                   "\nPerfection rate: " + calculatePerfectionRate() + "%";
     }
+     
+    /**
+     * Rise the supplier salary
+     */
+    @Override
+    public void riseBasePay() {
+        setBasePay(getBasePay() * (1 + calculatePerfectionRate()/10));
+    }
 
 }
