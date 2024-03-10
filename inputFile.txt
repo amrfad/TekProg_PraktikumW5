@@ -13,3 +13,18 @@ Farhan
 70
 6.7
 0.79
+Supplier
+Warteg Bahari
+Hasoyu
+2000
+150
+7
+300
+17
+SalesAssociate
+Warteg Bahari
+Dadine
+25000.00
+132
+6.7
+0.69

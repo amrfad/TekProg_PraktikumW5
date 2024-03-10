@@ -29,6 +29,7 @@ public class StoreDriver {
 
         //1. Declare variables managerCount, salesAssociateCount of type integer and initialize them to 0.
         int managerCount = 0;
+        int supplierCount = 0;
         int salesAssociateCount = 0;
 
         //2. Declare & initialize an object for PrintWriter class and use the file name "outputFile.txt" to write the corresponding data
@@ -39,6 +40,8 @@ public class StoreDriver {
         List<Manager> managerList = new ArrayList<Manager>();
         //5. Declare and initialize a List object of type SalesAssociate as "salesAssociateList", and initialize the object as an ArrayList. 
         List<SalesAssociate> SalesAssociateList = new ArrayList<SalesAssociate>();
+        // Declare and initialize a List object of type Supplier as "supplierList", and initialize the object as an ArrayList.
+        List<Supplier> supplierList = new ArrayList<Supplier>();
         //6. While inputFile.txt has more data(While loop starts here) {
         while (sc.hasNext()) {
 
@@ -69,6 +72,12 @@ public class StoreDriver {
                 String str = sc.nextLine();
                 managerList.add(manager);
 
+            } else if (employeeType.equals("Supplier")) {
+                int productSupplied = sc.nextInt();
+                int lateDelivery = sc.nextInt();
+                Supplier supplier = new Supplier(numberOfHoursWorked, hourlyRate, storeDetails, basePay, employeeType, productSupplied, lateDelivery);
+                String str = sc.nextLine();
+                supplierList.add(supplier);
             } else {
                 double salesRate = sc.nextDouble();
                 SalesAssociate salesAssociate = new SalesAssociate(salesRate, numberOfHoursWorked, hourlyRate, storeDetails, empName, basePay);
@@ -115,6 +124,9 @@ public class StoreDriver {
             }
 
         }
+        System.out.println("Total Payroll for All Manager: " + Store.calculatePayroll(new ArrayList<>(managerList)));
+        pwd.println("Total Payroll for All Manager: " + Store.calculatePayroll(new ArrayList<>(managerList)));
+
 
         //   For Loop ends here
         //10.Print the size of the salesAssociateList to the console and outputfile. See the sample output for sample formatting
@@ -147,6 +159,40 @@ public class StoreDriver {
             }
 
         }
+        System.out.println("Total Payroll for All Sales Associate: " + Store.calculatePayroll(new ArrayList<>(SalesAssociateList)));
+        pwd.println("Total Payroll for All Sales Associate: " + Store.calculatePayroll(new ArrayList<>(SalesAssociateList)));
+
+        // Print the size of the supplierList to the console and outputfile.
+        System.out.println("******************************************************");
+        System.out.println("Number of employees working as SUPPLIERS are: " + supplierList.size());
+        System.out.println("******************************************************");
+        pwd.println("******************************************************");
+        pwd.println("Number of employees working as SUPPLIERS are: " + supplierList.size());
+        pwd.println("******************************************************");
+        //12. Use a enhanced for loop and iterate through supplierList which is of type Supplier and use "supplier" as variable.
+        //   Increment the count of the supplierCount by one every time loop is started. Now test the toString() method of Supplier class. Also write this output to
+        //   the console & outputFile.
+        //   Test the calculatePay(), calculateOvertime(), and checkPromotionEligibility() method of supplier class and write the output to both console and output file. Do the required String formatting by seeing the sample output
+        for (Supplier supplier : supplierList) {
+            supplierCount++;
+            System.out.println(supplierCount + ". Supplier Details:");
+            System.out.println(supplier);
+            pwd.println(supplier);
+            System.out.println("Gross Payment: $" + supplier.calculatePay());
+            System.out.println("Overtime Payment: $" + supplier.calculateOvertime());
+            pwd.println("Gross Payment: $" + supplier.calculatePay());
+            pwd.println("Overtime Payment: $" + supplier.calculateOvertime());
+            System.out.print("Is " + supplier.getEmployeeName() + " eligible for promotion? ");
+            if (supplier.checkPromotionEligibility() == true) {
+                System.out.println("Yes, he/she is eligible\n");
+            }
+            else {
+                System.out.println("No, he/she needs to work harder\n");
+            }
+        }
+        System.out.println("Total Payroll for All Supplier: " + Store.calculatePayroll(new ArrayList<>(supplierList)));
+        pwd.println("Total Payroll for All Supplier: " + Store.calculatePayroll(new ArrayList<>(supplierList)));
+
         pwd.close();
         //   For loop ends after this
 

@@ -5,6 +5,8 @@
  */
 // package store;
 
+import java.util.ArrayList;
+
 /**
  * This is the Store interface file.
  *
@@ -25,7 +27,6 @@ public interface Store {
 
     /**
      *
-     * @return 
      * @return- This method returns the calculateCommission.
      */
     public double calculateCommission();
@@ -37,4 +38,17 @@ public interface Store {
      */
     public double calculateRemainingStoreRevenue(double storeSales);
 
+    /**
+     * 
+     * @param empList
+     * @return
+     */
+    public static double calculatePayroll(ArrayList<AbstractStoreEmployee> empList) {
+        // generate calculation for every pay of object
+        double sum = 0;
+        for (AbstractStoreEmployee employee : empList) {
+            sum += employee.calculatePay();
+        }
+        return sum;
+    } 
 }

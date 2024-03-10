@@ -19,8 +19,10 @@ public class Supplier extends AbstractStoreEmployee {
      * @param employeeName - The parameter Full name of the Employee is passed.
      */
     public Supplier(double numberOfHoursWorked, double hourlyRate, String storeDetails,
-    double basePay, String employeeName) {
+    double basePay, String employeeName, int productSupplied, int lateDelivery) {
         super(numberOfHoursWorked, hourlyRate, storeDetails, basePay, employeeName);
+        this.productSupplied = productSupplied;
+        this.lateDelivery = lateDelivery;
     }
 
     /**
@@ -94,7 +96,7 @@ public class Supplier extends AbstractStoreEmployee {
     *         where 1 represents perfect on-time delivery.
     */
     public double calculatePerfectionRate() {
-        return (productSupplied - lateDelivery) / productSupplied;
+        return (double) (productSupplied - lateDelivery) / productSupplied;
     }
 
     /**
