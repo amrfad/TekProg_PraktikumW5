@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package store;
+// package store;
 
 /**
  * This is the AbstractStoreEmployee abstract class file implements Employee and
@@ -171,6 +171,16 @@ public abstract class AbstractStoreEmployee implements Employee, Store {
      */
     public void setStoreDetails(String storeDetails) {
         this.storeDetails = storeDetails;
+    }
+
+    /**
+    * Calculates the overtime pay for the current employee based on their logged overtime hours
+    *
+    * @return The calculated overtime pay amount for the current employee.
+    */
+    @Override
+    public double calculateOvertime() {
+        return numberOfHoursWorked - 140;
     }
 
     /**

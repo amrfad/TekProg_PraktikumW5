@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package store;
+// package store;
 
 /**
  * This is the SalesAssociate class file extends AbstractStoreEmployee class
@@ -85,6 +85,17 @@ public class SalesAssociate extends AbstractStoreEmployee {
      */
     public double getSalesRate() {
         return salesRate * 100;
+    }
+
+    /**
+    * Calculates the overtime pay for the current employee based on their logged overtime hours
+    * and sales rate
+    *
+    * @return The calculated overtime pay amount for the current employee.
+    */
+    @Override
+    public double calculateOvertime() {
+        return super.calculateOvertime() + (getNumberOfHoursWorked() - 100) * salesRate;
     }
 
     /**

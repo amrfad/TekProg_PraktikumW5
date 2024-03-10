@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package store;
+// package store;
 
 /**
  * This is the Employee interface file.
@@ -27,5 +27,12 @@ public interface Employee {
      * promotion. for an employee.
      */
     boolean checkPromotionEligibility();
+
+    /**
+    * Calculates the overtime pay for the current employee based on their logged overtime hours
+    *
+    * @return The calculated overtime pay amount for the current employee.
+    */
+    double calculateOvertime();
 
 }

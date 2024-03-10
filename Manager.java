@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package store;
+// package store;
 
 /**
  * This is the Manager class file extends AbstractStoreEmployee.
@@ -143,6 +143,17 @@ public class Manager extends AbstractStoreEmployee {
      */
     public void setTotalStoreSales(double totalStoreSales) {
         this.totalStoreSales = totalStoreSales;
+    }
+
+    /**
+    * Calculates the overtime pay for the current employee based on 
+    * their logged overtime hours and bonus rate
+    *
+    * @return The calculated overtime pay amount for the current employee.
+    */
+    @Override
+    public double calculateOvertime() {
+        return super.calculateOvertime() - 40 * (1 + bonusRate/10);
     }
 
     /**
